@@ -1,35 +1,45 @@
 package challenge.ckl.database;
 
+import com.google.gson.annotations.SerializedName;
+
+import se.emilsjolander.sprinkles.CursorList;
 import se.emilsjolander.sprinkles.Model;
+import se.emilsjolander.sprinkles.Query;
 import se.emilsjolander.sprinkles.annotations.Column;
 import se.emilsjolander.sprinkles.annotations.Key;
+import se.emilsjolander.sprinkles.annotations.Table;
 
 /**
  * Created by
  * Lucas Oceano Martins on 30/10/14.
  */
+@Table("article")
 public class Article extends Model {
 
     @Key
     @Column("title")
+    @SerializedName("title")
     protected String mTitle;
-    
+
     @Column("authors")
+    @SerializedName("authors")
     protected String mAuthors;
 
-    @Column("webPage")
-    protected String mWebPage;
+    @Column("website")
+    @SerializedName("website")
+    protected String mWebsite;
 
     @Column("date")
+    @SerializedName("date")
     protected String mDate;
 
 
-    public String getWebPage() {
-        return mWebPage;
+    public String getWebsite() {
+        return mWebsite;
     }
 
-    public void setWebPage(String mWebPage) {
-        this.mWebPage = mWebPage;
+    public void setWebsite(String mWebPage) {
+        this.mWebsite = mWebPage;
     }
 
     public String getDate() {
@@ -54,5 +64,9 @@ public class Article extends Model {
 
     public void setTitle(String mTitle) {
         this.mTitle = mTitle;
+    }
+
+    public static CursorList<Article> getAll() {
+        return Query.many(Article.class, "select * from article").get();
     }
 }
