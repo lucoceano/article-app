@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import challenge.ckl.database.Article;
 import se.emilsjolander.sprinkles.CursorList;
@@ -19,9 +22,16 @@ public class ArticleAdapter extends BaseAdapter {
 
     private final LayoutInflater mInflater;
     protected ModelList<Article> mContent;
+    private ArrayList<Integer> mBackgroundColors;
 
     public ArticleAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mBackgroundColors = new ArrayList<Integer>();
+        mBackgroundColors.add(R.color.app_blue);
+        mBackgroundColors.add(R.color.app_green);
+        mBackgroundColors.add(R.color.app_orange);
+        mBackgroundColors.add(R.color.app_red);
+        mBackgroundColors.add(R.color.app_teal);
     }
 
     public void setContent(CursorList<Article> content) {
@@ -55,6 +65,8 @@ public class ArticleAdapter extends BaseAdapter {
             holder.authors = (TextView) convertView.findViewById(R.id.article_authors_textView);
             holder.date = (TextView) convertView.findViewById(R.id.article_date_textView);
             holder.website = (TextView) convertView.findViewById(R.id.article_website_textView);
+            holder.firstLetterTextView = (TextView) convertView.findViewById(R.id.article_first_letter_textView);
+            holder.articleImage = (ImageView) convertView.findViewById(R.id.article_imageView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -67,6 +79,10 @@ public class ArticleAdapter extends BaseAdapter {
         holder.date.setText(article.getDate());
         holder.website.setText(article.getWebsite());
 
+        int backgroundIndex = position >= mBackgroundColors.size() ? position % mBackgroundColors.size() : position;
+        holder.articleImage.setBackgroundResource(mBackgroundColors.get(backgroundIndex));
+        holder.firstLetterTextView.setText(article.getTitle().substring(0, 1).toUpperCase());
+
         return convertView;
     }
 
@@ -75,5 +91,9 @@ public class ArticleAdapter extends BaseAdapter {
         TextView authors;
         TextView date;
         TextView website;
+        TextView firstLetterTextView;
+
+        ImageView articleImage;
+
     }
 }

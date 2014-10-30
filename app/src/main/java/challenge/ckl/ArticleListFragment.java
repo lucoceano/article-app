@@ -14,7 +14,6 @@ import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
 
 import challenge.ckl.database.Article;
-import challenge.ckl.dummy.DummyContent;
 import se.emilsjolander.sprinkles.CursorList;
 
 public class ArticleListFragment extends Fragment implements AbsListView.OnItemClickListener {
@@ -40,7 +39,6 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-//        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
@@ -71,7 +69,7 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            mListener.onFragmentInteraction(position + "");
         }
     }
 
@@ -93,8 +91,8 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
         mListAdapter.setContent(teams);
 
         if (mListView.getAdapter() == null) {
-			AnimationAdapter animAdapter = new AlphaInAnimationAdapter(mListAdapter);
-			animAdapter.setAbsListView(mListView);
+            AnimationAdapter animAdapter = new AlphaInAnimationAdapter(mListAdapter);
+            animAdapter.setAbsListView(mListView);
             mListView.setAdapter(mListAdapter);
         }
         mListAdapter.notifyDataSetChanged();

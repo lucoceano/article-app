@@ -28,4 +28,5 @@ dependencies {
     compile 'com.koushikdutta.ion:ion:1.+'
     compile 'com.google.code.gson:gson:2.2.+'
     compile 'com.nhaarman.listviewanimations:library:2.+'
+    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
 }
