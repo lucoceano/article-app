@@ -1,8 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryClicked</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <item name="actionBarStyle">@style/ActionBar</item>
     </style>
 
+    <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <color name="colorPrimary">#3e91a7</color>
+    <color name="colorPrimaryClicked">#3e91dc</color>
 </resources>
