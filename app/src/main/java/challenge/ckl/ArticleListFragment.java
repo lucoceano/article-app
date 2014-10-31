@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
 
+import challenge.ckl.adapter.ArticleAdapter;
 import challenge.ckl.database.Article;
 import se.emilsjolander.sprinkles.CursorList;
 
@@ -25,6 +26,7 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
     public ArticleListFragment() {
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,19 +34,18 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
         mListAdapter = new ArticleAdapter(getActivity());
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_article, container, false);
 
-        // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-
-        // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
 
         return view;
     }
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -56,6 +57,7 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
                     + " must implement OnFragmentInteractionListener");
         }
     }
+
 
     @Override
     public void onDetach() {
@@ -74,9 +76,9 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
     }
 
     /**
-     * The default content for this Fragment has a TextView that is shown when
-     * the list is empty. If you would like to change the text, call this method
-     * to supply the text it should use.
+     * Set the empty textView.
+     *
+     * @param emptyText String
      */
     public void setEmptyText(CharSequence emptyText) {
         View emptyView = mListView.getEmptyView();
@@ -86,9 +88,15 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
         }
     }
 
-    public void updateList(CursorList<Article> teams) {
+    /**
+     * Set the adapter for the list if there isn' one
+     * and reload the content of the adapter
+     *
+     * @param newContent CursorList<Article>
+     */
+    public void updateList(CursorList<Article> newContent) {
 
-        mListAdapter.setContent(teams);
+        mListAdapter.setContent(newContent);
 
         if (mListView.getAdapter() == null) {
             AnimationAdapter animAdapter = new AlphaInAnimationAdapter(mListAdapter);
@@ -99,6 +107,9 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
     }
 
 
+    /**
+     * Interface for the listClickListener
+     */
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(String id);
     }

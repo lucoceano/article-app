@@ -29,4 +29,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.+'
     compile 'com.nhaarman.listviewanimations:library:2.+'
     compile 'uk.co.chrisjenx:calligraphy:1.2.0'
+    compile 'com.etsy.android.grid:library:1.0.5'
 }

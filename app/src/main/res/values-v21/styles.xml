@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryClicked</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <item name="actionBarStyle">@style/ActionBar</item>
+
     </style>
+
+    <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <color name="colorPrimary">#3e91a7</color>
+    <color name="colorPrimaryClicked">#3e91dc</color>
 </resources>

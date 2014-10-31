@@ -66,7 +66,7 @@ public class Article extends Model {
         this.mTitle = mTitle;
     }
 
-    public static CursorList<Article> getAll() {
-        return Query.many(Article.class, "select * from article").get();
+    public static CursorList<Article> getAll(String orderBy) {
+        return Query.many(Article.class, "SELECT * FROM article ORDER BY " + orderBy + " ASC").get();
     }
 }

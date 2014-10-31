@@ -1,4 +1,4 @@
-package challenge.ckl;
+package challenge.ckl.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import challenge.ckl.R;
 import challenge.ckl.database.Article;
 import se.emilsjolander.sprinkles.CursorList;
 import se.emilsjolander.sprinkles.ModelList;

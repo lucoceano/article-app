@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CKL Challenge</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Challenge</string>
+
+    <string-array name="filter_array">
+        <item>Title</item>
+        <item>Authors</item>
+        <item>Date</item>
+        <item>Website</item>
+    </string-array>
 
 </resources>
