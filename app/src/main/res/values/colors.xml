@@ -14,4 +14,6 @@
     <color name="app_orange">#ffa726</color>
     <color name="app_teal">#26a69a</color>
 
+    <color name="app_blue_gray">#37474f</color>
+
 </resources>

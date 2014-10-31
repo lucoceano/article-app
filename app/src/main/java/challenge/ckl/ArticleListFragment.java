@@ -10,8 +10,8 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
-import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
-import com.nhaarman.listviewanimations.swinginadapters.prepared.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 
 import challenge.ckl.adapter.ArticleAdapter;
 import challenge.ckl.database.Article;
@@ -99,9 +99,9 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
         mListAdapter.setContent(newContent);
 
         if (mListView.getAdapter() == null) {
-            AnimationAdapter animAdapter = new AlphaInAnimationAdapter(mListAdapter);
-            animAdapter.setAbsListView(mListView);
-            mListView.setAdapter(mListAdapter);
+            SwingBottomInAnimationAdapter animationAdapter = new SwingBottomInAnimationAdapter(mListAdapter);
+            animationAdapter.setAbsListView(mListView);
+            mListView.setAdapter(animationAdapter);
         }
         mListAdapter.notifyDataSetChanged();
     }
