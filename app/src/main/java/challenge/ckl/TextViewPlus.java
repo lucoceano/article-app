@@ -13,6 +13,7 @@ import com.etsy.android.grid.util.DynamicHeightTextView;
  * on 14/06/2013.
  */
 public class TextViewPlus extends DynamicHeightTextView {
+    
     private static final String TAG = "TextView";
 
     public TextViewPlus(Context context) {

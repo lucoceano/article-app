@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import se.emilsjolander.sprinkles.Migration;
 import se.emilsjolander.sprinkles.Sprinkles;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by
@@ -13,13 +12,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 public class ChallengeApplication extends Application {
 
-    public static final String FONT_ASSET_PATH = "fonts/Roboto-Regular.ttf";
-
     @Override
     public void onCreate() {
         super.onCreate();
-        CalligraphyConfig.initDefault(FONT_ASSET_PATH, R.attr.fontPath);
-
 
         Sprinkles sprinkles = Sprinkles.init(getApplicationContext());
 

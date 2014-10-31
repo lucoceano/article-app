@@ -25,7 +25,7 @@ import se.emilsjolander.sprinkles.ModelList;
 public class ListActivity extends ActionBarActivity implements ArticleListFragment.OnFragmentInteractionListener {
 
     protected ArticleListFragment mArticleListFragment;
-    protected String orderBy = "title";
+    protected String mOrderBy = "title";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                orderBy = strings[position].toLowerCase();
+                mOrderBy = strings[position].toLowerCase();
                 ListActivity.this.refreshList();
             }
 
@@ -112,7 +112,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
      * Otherwise call noContent.
      */
     private void refreshList() {
-        CursorList<Article> articles = Article.getAll(orderBy);
+        CursorList<Article> articles = Article.getAll(mOrderBy);
         if (articles.size() > 0) {
             mArticleListFragment.updateList(articles);
         } else {
