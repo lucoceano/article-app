@@ -14,7 +14,4 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-
-    <color name="colorPrimary">#3e91a7</color>
-    <color name="colorPrimaryClicked">#3e91dc</color>
 </resources>

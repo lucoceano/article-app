@@ -33,6 +33,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
         setContentView(R.layout.activity_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setLogo(R.drawable.ic_launcher);
         setSupportActionBar(toolbar);
 
         mArticleListFragment = (ArticleListFragment) getFragmentManager().findFragmentById(R.id.article_list_fragment);

@@ -16,4 +16,7 @@
 
     <color name="app_blue_gray">#37474f</color>
 
+    <color name="colorPrimary">#3e91a7</color>
+    <color name="colorPrimaryClicked">#3e91dc</color>
+
 </resources>

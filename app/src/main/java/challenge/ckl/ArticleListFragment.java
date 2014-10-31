@@ -10,7 +10,6 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
-import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 
 import challenge.ckl.adapter.ArticleAdapter;
@@ -30,7 +29,6 @@ public class ArticleListFragment extends Fragment implements AbsListView.OnItemC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mListAdapter = new ArticleAdapter(getActivity());
     }
 
