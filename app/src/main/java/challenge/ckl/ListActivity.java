@@ -25,7 +25,7 @@ import se.emilsjolander.sprinkles.ModelList;
 public class ListActivity extends ActionBarActivity implements ArticleListFragment.OnFragmentInteractionListener {
 
     protected ArticleListFragment mArticleListFragment;
-    protected String mOrderBy = "title";
+    protected static String sInitialOrderBy = "title";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
         mArticleListFragment = (ArticleListFragment) getFragmentManager().findFragmentById(R.id.article_list_fragment);
 
         loadContent();
-        refreshList();
+        refreshList(sInitialOrderBy);
     }
 
     @Override
@@ -62,8 +62,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mOrderBy = strings[position].toLowerCase();
-                ListActivity.this.refreshList();
+                ListActivity.this.refreshList(strings[position].toLowerCase());
             }
 
             @Override
@@ -88,7 +87,7 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
                     modelList.saveAllAsync(new ModelList.OnAllSavedCallback() {
                         @Override
                         public void onAllSaved() {
-                            ListActivity.this.refreshList();
+                            ListActivity.this.refreshList(sInitialOrderBy);
                         }
                     });
                 } else {
@@ -111,8 +110,8 @@ public class ListActivity extends ActionBarActivity implements ArticleListFragme
      * If so refresh the list,
      * Otherwise call noContent.
      */
-    private void refreshList() {
-        CursorList<Article> articles = Article.getAll(mOrderBy);
+    private void refreshList(String orderBy) {
+        CursorList<Article> articles = Article.getAll(orderBy);
         if (articles.size() > 0) {
             mArticleListFragment.updateList(articles);
         } else {
