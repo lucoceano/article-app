@@ -11,9 +11,22 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            release {
+                storeFile file("libs/release.keystore")
+                storePassword "Onaeco27"
+                keyAlias "ckl_challenge"
+                keyPassword "cheese"
+            }
+        }
+    }
+
+
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
