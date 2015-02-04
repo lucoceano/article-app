@@ -1,4 +1,6 @@
 language: android
+jdk:
+ - oraclejdk7
 android:
   components:
     # Uncomment the lines below if you want to
@@ -11,12 +13,6 @@ android:
 
     # The SDK version used to compile your project
     - android-21
-
-   install:
-    # Check install section: http://docs.travis-ci.com/user/build-configuration/#install
-    # If you'd like to skip the install stage entirely, set it to true and nothing will be run.
-    - true
   
-   script:
-    # By default Travis-ci executes './gradlew build connectedCheck' if no 'script:' section found.
-    - ./gradlew build
+script:
+  - ./gradlew build
